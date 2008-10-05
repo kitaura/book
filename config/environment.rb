@@ -9,7 +9,7 @@ RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
+require 'amazon/ecs'
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -56,4 +56,11 @@ Rails::Initializer.run do |config|
 
   # Make Active Record use UTC-base instead of local time
   # config.active_record.default_timezone = :utc
+  
+  
+  Amazon::Ecs.options = {
+  :aWS_access_key_id => "02CQDS8AZK4EG6PPQRG2",
+  :associate_tag => "stepfeed-22",
+  :country => :jp
+}
 end

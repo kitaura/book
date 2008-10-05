@@ -7,6 +7,7 @@
     <b>Name</b><br />
     <%= f.text_field :name %>
   </p>
+  
 
   <p>
     <b>Isbn</b><br />
@@ -25,5 +26,16 @@
     <%= f.submit "Create" %>
   </p>
 <% end %>
+
+<p>
+  	<b>Ajax Name</b>
+	<p> 検索:<%= text_field_tag 'key_word' %></P>
+	<p id ="amazon_list"></p>
+	<%= observe_field 'key_word',
+		:update => 'amazon_list',
+		:url	=> { :action => 'amazon_search' },
+		:with	=> 'key_word' ,
+		:frequency => 0.5 %>
+  </P>
 
 <%= link_to 'Back', books_path %>
