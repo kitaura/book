@@ -1,0 +1,22 @@
+<h1>Editing owner</h1>
+
+<%= error_messages_for :owner %>
+
+<% form_for(@owner) do |f| %>
+  <p>
+    <b>User</b><br />
+    <%= f.text_field :user_id %>
+  </p>
+
+  <p>
+    <b>Book</b><br />
+    <%= f.text_field :book_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @owner %> |
+<%= link_to 'Back', owners_path %>

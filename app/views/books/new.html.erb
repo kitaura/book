@@ -1,0 +1,29 @@
+<h1>New book</h1>
+
+<%= error_messages_for :book %>
+
+<% form_for(@book) do |f| %>
+  <p>
+    <b>Name</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Isbn</b><br />
+    <%= f.text_field :isbn %>
+  </p>
+
+  <p>
+    <b>Author</b><br />
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <b>Owner</b><br />
+    <%= select( "owner", "owner_id", owners_select) %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', books_path %>
