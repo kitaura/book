@@ -41,8 +41,6 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
-    
-
     respond_to do |format|
       if @book.save
         flash[:notice] = 'Book was successfully created.'

@@ -1,6 +1,17 @@
 
 <h1>New book</h1>
 <%= error_messages_for :book %>
+<script type="text/javascript">
+	function setBook(title, auther, isbn){
+		document.getElementById("book_name").value = title;
+		document.getElementById("book_author").value = auther;
+		document.getElementById("book_isbn").value = isbn;
+	}
+	
+</script>
+
+
+
 
 <% form_for(@book) do |f| %>
 <div class="posting_field">

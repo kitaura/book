@@ -4338,3 +4338,375 @@ Rendering template within layouts/books
 Rendering books/new
   [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
 Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:03:29) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"nar"}
+Rendering books/amazon_search
+Completed in 2.11000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:03:32) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"n"}
+Rendering books/amazon_search
+Completed in 2.62500 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:03:35) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"naruto"}
+Rendering books/amazon_search
+Completed in 2.68700 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:10:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.04600 (74%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:20:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:21:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:23:01) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one"}
+Rendering books/amazon_search
+Completed in 3.06200 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:34:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03200 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:34:39) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 3.20300 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:35:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.04700 (74%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:35:07) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"naru"}
+Rendering books/amazon_search
+Completed in 2.07800 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:35:09) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"naruto"}
+Rendering books/amazon_search
+Completed in 2.56200 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:36:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:36:44) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"jav"}
+Rendering books/amazon_search
+Completed in 0.92200 (1 reqs/sec) | Rendering: 0.01500 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:36:46) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.76600 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:39:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.04700 (74%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:39:13) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"jr"}
+Rendering books/amazon_search
+Completed in 2.85900 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:39:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.76600 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:40:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.04700 (75%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:40:04) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"jav"}
+Rendering books/amazon_search
+Completed in 0.84400 (1 reqs/sec) | Rendering: 0.01600 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:40:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.87500 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:41:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:42:00) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.46900 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:42:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:42:28) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one"}
+Rendering books/amazon_search
+Completed in 2.70300 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:44) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one p"}
+Rendering books/amazon_search
+Completed in 2.64000 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:47) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pice "}
+Rendering books/amazon_search
+Completed in 0.67200 (1 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:49) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pice"}
+Rendering books/amazon_search
+Completed in 1.20300 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:50) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one "}
+Rendering books/amazon_search
+Completed in 2.62500 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:53) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one p"}
+Rendering books/amazon_search
+Completed in 2.56300 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:56) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece"}
+Rendering books/amazon_search
+Completed in 2.48400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:43:59) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one "}
+Rendering books/amazon_search
+Completed in 2.26500 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:02) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one p"}
+Rendering books/amazon_search
+Completed in 2.18800 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:04) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pea"}
+Rendering books/amazon_search
+Completed in 0.43800 (2 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:05) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one peace"}
+Rendering books/amazon_search
+Completed in 2.35900 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:07) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one "}
+Rendering books/amazon_search
+Completed in 2.51500 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one p"}
+Rendering books/amazon_search
+Completed in 2.18800 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:12) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pic"}
+Rendering books/amazon_search
+Completed in 0.40700 (2 reqs/sec) | Rendering: 0.01600 (3%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:12) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pice"}
+Rendering books/amazon_search
+Completed in 1.15600 (0 reqs/sec) | Rendering: 0.01600 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:14) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pic"}
+Rendering books/amazon_search
+Completed in 0.40600 (2 reqs/sec) | Rendering: 0.01600 (3%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pi"}
+Rendering books/amazon_search
+Completed in 0.43700 (2 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:17) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one "}
+Rendering books/amazon_search
+Completed in 2.54600 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:20) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one p"}
+Rendering books/amazon_search
+Completed in 2.14100 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:22) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one pie"}
+Rendering books/amazon_search
+Completed in 0.43700 (2 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece"}
+Rendering books/amazon_search
+Completed in 2.50000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:26) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece "}
+Rendering books/amazon_search
+Completed in 2.68800 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:28) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece 5"}
+Rendering books/amazon_search
+Completed in 2.17200 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:44:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece 51"}
+Rendering books/amazon_search
+Completed in 2.59400 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 17:46:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 17:46:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"one piece 52"}
+Rendering books/amazon_search
+Completed in 1.23400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
