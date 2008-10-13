@@ -3,20 +3,17 @@
 <%# @images%>
 <br>
 <%# image_tag(@image)%>
-
-<table width="100%" border="1">
-    <tr>
-        <td>
-        	title
-        </td>
-        <td>
-        	image
-        </td>
-    </tr>
+<div class=amazon_result>
+<table border="1">
 <% @amazon_books.each do |book|%>
     <tr>
+    	<td>
+    		<input type="button" value="この本を登録" onclick="setBook('<%= book.title%>','<%= book.auther%>','<%= book.isbn%>')">
+    	</td>
         <td>
-        	<%= book.title%>
+        	title:<%= book.title%><br/>
+			auther:<%= book.auther%><br/>
+			isbn:<%= book.isbn%>
         </td>
         <td>
         	<%= image_tag(book.image)%>
@@ -25,3 +22,4 @@
 <%end%>
 </table>
 
+</div>

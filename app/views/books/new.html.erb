@@ -1,41 +1,61 @@
-<h1>New book</h1>
 
+<h1>New book</h1>
 <%= error_messages_for :book %>
 
 <% form_for(@book) do |f| %>
-  <p>
-    <b>Name</b><br />
-    <%= f.text_field :name %>
-  </p>
-  
+<div class="posting_field">
+<table  border="0">
+    <tr>
+        <td>
+        	title
+        </td>
+        <td>
+        	<%= f.text_field :name %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        	auther
+        </td>
+        <td>
+        	<%= f.text_field :author %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        	isbn
+        </td>
+        <td>
+        	<%= f.text_field :isbn %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        	Owner
+        </td>
+        <td>
+        	<%= select( "owner", "owner_id", owners_select) %>
+        </td>
+    </tr>
+</table>
 
-  <p>
-    <b>Isbn</b><br />
-    <%= f.text_field :isbn %>
-  </p>
 
-  <p>
-    <b>Author</b><br />
-    <%= f.text_field :author %>
-  </p>
-  <p>
-    <b>Owner</b><br />
-    <%= select( "owner", "owner_id", owners_select) %>
-  </p>
+</div>
+<div class="search_field">
+		<p>
+			<p> 検索:<%= text_field_tag 'key_word' %></P>
+			<p id ="amazon_list"></p>
+			<%= observe_field 'key_word',
+				:update => 'amazon_list',
+				:url	=> { :action => 'amazon_search' },
+				:with	=> 'key_word' ,
+				:frequency => 1.5 %>
+		  </P>
+		
+</div>
   <p>
     <%= f.submit "Create" %>
   </p>
 <% end %>
-
-<p>
-  	<b>Ajax Name</b>
-	<p> 検索:<%= text_field_tag 'key_word' %></P>
-	<p id ="amazon_list"></p>
-	<%= observe_field 'key_word',
-		:update => 'amazon_list',
-		:url	=> { :action => 'amazon_search' },
-		:with	=> 'key_word' ,
-		:frequency => 1.5 %>
-  </P>
 
 <%= link_to 'Back', books_path %>

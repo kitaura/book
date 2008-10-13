@@ -3130,3 +3130,1211 @@ Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-05 16:28:28) 
   Parameters: {"authenticity_token"=>"68518045ca8189e14cc9ed599ef02f7598e39e97", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"javascript入門"}
 Rendering books/amazon_search
 Completed in 2.29700 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+  [4;36;1mSQL (0.000000)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.171000)[0m   [0mCREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.157000)[0m   [0;1mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateBooks (1)
+  [4;35;1mSQL (0.156000)[0m   [0mCREATE TABLE books ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "isbn" varchar(255) DEFAULT NULL, "author" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.265000)[0m   [0;1mUPDATE schema_info SET version = 1[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (2)
+  [4;36;1mSQL (0.203000)[0m   [0;1mCREATE TABLE users ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL, "mail" varchar(255) DEFAULT NULL, "twitter" varchar(255) DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;35;1mSQL (0.422000)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateOwners (3)
+  [4;35;1mSQL (0.141000)[0m   [0mCREATE TABLE owners ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer DEFAULT NULL, "book_id" integer DEFAULT NULL, "created_at" datetime DEFAULT NULL, "updated_at" datetime DEFAULT NULL) [0m
+  [4;36;1mSQL (0.140000)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000000)[0m   [0mPRAGMA index_list(books)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mPRAGMA index_list(owners)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mPRAGMA index_list(users)[0m
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 14:21:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03200 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:22:01) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"らいｌ"}
+Rendering books/amazon_search
+
+
+ActionView::TemplateError (can't convert nil into String) on line #22 of books/amazon_search.erb:
+19:         	<%= book.title%>
+20:         </td>
+21:         <td>
+22:         	<%= image_tag(book.image)%>
+23:         </td>
+24:     </tr>
+25: <%end%>
+
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `extname'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `compute_public_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:345:in `path_to_image'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:385:in `image_tag'
+    app/views/books/amazon_search.erb:22:in `_run_erb_47app47views47books47amazon_search46erb'
+    app/views/books/amazon_search.erb:16:in `each'
+    app/views/books/amazon_search.erb:16:in `_run_erb_47app47views47books47amazon_search46erb'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:914:in `render_with_no_layout'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/books_controller.rb:91:in `amazon_search'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:22:04) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rail"}
+Rendering books/amazon_search
+Completed in 2.89000 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:22:07) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.85900 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:32:45) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 3.20300 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2008-10-13 14:42:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/users
+Rendering users/new
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01600 (51%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/new]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2008-10-13 14:43:03) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"user"=>{"name"=>"akahige", "twitter"=>"akahige@gmail.com", "mail"=>"akahige@hotmail.com"}, "commit"=>"Create", "authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"create", "controller"=>"users"}
+  [4;35;1mUser Create (0.000000)[0m   [0mINSERT INTO users ("name", "twitter", "updated_at", "mail", "created_at") VALUES('akahige', 'akahige@gmail.com', '2008-10-13 14:43:03', 'akahige@hotmail.com', '2008-10-13 14:43:03')[0m
+Redirected to http://localhost:3000/users/1
+Completed in 0.21900 (4 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2008-10-13 14:43:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiNVc2VyIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4G%0AOgpAdXNlZHsGOwdU--c4857862855e21ad2dd505b58a77238c411c0a05
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users WHERE (users."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/show
+Completed in 0.01500 (66 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2008-10-13 14:43:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users WHERE (users."id" = 1) [0m
+Rendering template within layouts/users
+Rendering users/edit
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.01500 (31%) | DB: 0.00000 (0%) | 200 OK [http://localhost/users/1/edit]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 14:43:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.29700 (3 reqs/sec) | Rendering: 0.03100 (10%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 14:57:57) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.07800 (12 reqs/sec) | Rendering: 0.04700 (60%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 14:58:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.016000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.01500 (23%) | DB: 0.01600 (25%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:58:59) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ra"}
+Rendering books/amazon_search
+
+
+ActionView::TemplateError (can't convert nil into String) on line #22 of books/amazon_search.erb:
+19:         	<%= book.title%>
+20:         </td>
+21:         <td>
+22:         	<%= image_tag(book.image)%>
+23:         </td>
+24:     </tr>
+25: <%end%>
+
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `extname'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `compute_public_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:345:in `path_to_image'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:385:in `image_tag'
+    app/views/books/amazon_search.erb:22:in `_run_erb_47app47views47books47amazon_search46erb'
+    app/views/books/amazon_search.erb:16:in `each'
+    app/views/books/amazon_search.erb:16:in `_run_erb_47app47views47books47amazon_search46erb'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:914:in `render_with_no_layout'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/books_controller.rb:91:in `amazon_search'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 14:59:02) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.81200 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:08:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.03100 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:08:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.01500 (31%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:10:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:10:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04600 (21 reqs/sec) | Rendering: 0.01500 (32%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:11:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.016000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.01600 (25%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:12:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:12:54) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"じ"}
+Rendering books/amazon_search
+
+
+ActionView::TemplateError (can't convert nil into String) on line #22 of books/amazon_search.erb:
+19:         	<%= book.title%>
+20:         </td>
+21:         <td>
+22:         	<%= image_tag(book.image)%>
+23:         </td>
+24:     </tr>
+25: <%end%>
+
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `extname'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:431:in `compute_public_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:345:in `path_to_image'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/asset_tag_helper.rb:385:in `image_tag'
+    app/views/books/amazon_search.erb:22:in `_run_erb_47app47views47books47amazon_search46erb'
+    app/views/books/amazon_search.erb:16:in `each'
+    app/views/books/amazon_search.erb:16:in `_run_erb_47app47views47books47amazon_search46erb'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:914:in `render_with_no_layout'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/books_controller.rb:91:in `amazon_search'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:12:57) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 3.10900 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:14:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:14:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04600 (21 reqs/sec) | Rendering: 0.03100 (67%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:15:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03200 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:15:34) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 3.04700 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:40:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.03200 (31 reqs/sec) | Rendering: 0.01600 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:40:48) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"jav"}
+Rendering books/amazon_search
+Completed in 0.90600 (1 reqs/sec) | Rendering: 0.01600 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-13 15:40:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"1223874461"=>nil}
+
+
+ActionController::RoutingError (No route matches "/images/" with {:method=>:get}):
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1448:in `recognize_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1431:in `recognize'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:40:49) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.92100 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:41:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 2.14100 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:44:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rubb"}
+Rendering books/amazon_search
+Completed in 0.54700 (1 reqs/sec) | Rendering: 0.01600 (2%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:44:19) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 1.92200 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-13 15:44:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/image/noimage.gif" with {:method=>:get}):
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1448:in `recognize_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1431:in `recognize'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:47:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:47:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"r"}
+Rendering books/amazon_search
+Completed in 2.96900 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:47:09) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 1.87500 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-13 15:47:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/images/image/noimage.gif" with {:method=>:get}):
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1448:in `recognize_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1431:in `recognize'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:47:35) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03200 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:47:40) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ru"}
+Rendering books/amazon_search
+Completed in 2.89100 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:47:43) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 1.82800 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-10-13 15:47:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/image/noimage.gif" with {:method=>:get}):
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1448:in `recognize_path'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/routing.rb:1431:in `recognize'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:170:in `handle_request'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:76:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/../lib/mongrel/rails.rb:74:in `process'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:159:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:158:in `process_client'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:285:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `initialize'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `new'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel.rb:268:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:282:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `each'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/configurator.rb:281:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:128:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/lib/mongrel/command.rb:212:in `run'
+    C:/ruby/lib/ruby/gems/1.8/gems/mongrel-1.1.2-mswin32/bin/mongrel_rails:281
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    C:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    C:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    C:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering C:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:50:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:50:19) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ru"}
+Rendering books/amazon_search
+Completed in 2.35900 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:50:21) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 1.92200 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:52:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:52:24) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"r"}
+Rendering books/amazon_search
+Completed in 2.73500 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:52:27) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rub"}
+Rendering books/amazon_search
+Completed in 1.68700 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:52:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.26600 (3 reqs/sec) | Rendering: 0.01600 (6%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:52:50) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.32800 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:53:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03200 (68%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:53:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"jav"}
+Rendering books/amazon_search
+Completed in 0.87500 (1 reqs/sec) | Rendering: 0.01500 (1%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:53:33) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.92200 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:56:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01500 (48%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:56:17) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"j"}
+Rendering books/amazon_search
+Completed in 3.50000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:56:21) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"らい"}
+Rendering books/amazon_search
+Completed in 3.25000 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:56:24) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.59400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 15:57:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rai"}
+Rendering books/amazon_search
+Completed in 2.87500 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:09) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>""}
+Rendering books/amazon_search
+Completed in 0.36000 (2 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#create (for 127.0.0.1 at 2008-10-13 15:57:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"create", "controller"=>"books", "owner"=>{"owner_id"=>"1"}, "book"=>{"name"=>"", "isbn"=>"", "author"=>""}, "key_word"=>"raisl"}
+  [4;35;1mBook Create (0.000000)[0m   [0mINSERT INTO books ("isbn", "name", "updated_at", "author", "created_at") VALUES('', '', '2008-10-13 15:57:10', '', '2008-10-13 15:57:10')[0m
+Redirected to http://localhost:3000/books/1
+Completed in 0.21900 (4 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/books]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"raisl"}
+Rendering books/amazon_search
+Completed in 0.40700 (2 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#show (for 127.0.0.1 at 2008-10-13 15:57:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiNCb29rIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4G%0AOgpAdXNlZHsGOwdU--05195e5d2b2a0cb385d7655ab052c0061ae556e6
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"books"}
+  [4;36;1mBook Load (0.000000)[0m   [0;1mSELECT * FROM books WHERE (books."id" = 1) [0m
+Rendering template within layouts/books
+Rendering books/show
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01500 (48%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/1]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:22) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ra"}
+Rendering books/amazon_search
+Completed in 2.92200 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#create (for 127.0.0.1 at 2008-10-13 15:57:25) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"create", "controller"=>"books", "owner"=>{"owner_id"=>"1"}, "book"=>{"name"=>"", "isbn"=>"", "author"=>""}, "key_word"=>"rails"}
+  [4;35;1mBook Create (0.000000)[0m   [0mINSERT INTO books ("isbn", "name", "updated_at", "author", "created_at") VALUES('', '', '2008-10-13 15:57:25', '', '2008-10-13 15:57:25')[0m
+Redirected to http://localhost:3000/books/2
+Completed in 0.14000 (7 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/books]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:25) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.46900 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#show (for 127.0.0.1 at 2008-10-13 15:57:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiNCb29rIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4G%0AOgpAdXNlZHsGOwdU--05195e5d2b2a0cb385d7655ab052c0061ae556e6
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"books"}
+  [4;36;1mBook Load (0.000000)[0m   [0;1mSELECT * FROM books WHERE (books."id" = 2) [0m
+Rendering template within layouts/books
+Rendering books/show
+Completed in 0.03100 (32 reqs/sec) | Rendering: 0.01600 (51%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/2]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:35) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rail"}
+Rendering books/amazon_search
+Completed in 2.50000 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:38) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ra"}
+Rendering books/amazon_search
+Completed in 2.23400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 15:57:40) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.65600 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:03:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:03:18) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>""}
+Rendering books/amazon_search
+Completed in 0.50000 (2 reqs/sec) | Rendering: 0.01600 (3%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:03:19) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.82800 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:04:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:04:21) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ra"}
+Rendering books/amazon_search
+Completed in 2.21900 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:04:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"rails"}
+Rendering books/amazon_search
+Completed in 2.65700 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:05:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:05:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:05:58) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"java"}
+Rendering books/amazon_search
+Completed in 2.96900 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:11:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.01500 (31%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:12:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"コナン"}
+Rendering books/amazon_search
+Completed in 2.45300 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:12:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.015000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.01600 (34%) | DB: 0.01500 (31%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:12:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"いぬやｓｙ"}
+Rendering books/amazon_search
+Completed in 0.56200 (1 reqs/sec) | Rendering: 0.01600 (2%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:12:33) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"犬夜叉"}
+Rendering books/amazon_search
+Completed in 2.35900 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:17:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:17:28) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"きま"}
+Rendering books/amazon_search
+Completed in 2.68700 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:17:31) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"きまぐれ"}
+Rendering books/amazon_search
+Completed in 3.12500 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:18:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:06) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ban"}
+Rendering books/amazon_search
+Completed in 2.17200 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:08) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"ばん"}
+Rendering books/amazon_search
+Completed in 2.73400 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:11) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"番町"}
+Rendering books/amazon_search
+Completed in 2.37500 (0 reqs/sec) | Rendering: 0.01500 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:13) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"番"}
+Rendering books/amazon_search
+Completed in 2.75000 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:16) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"番長"}
+Rendering books/amazon_search
+Completed in 2.75000 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:19) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"こん番長"}
+Rendering books/amazon_search
+Completed in 3.65600 (0 reqs/sec) | Rendering: 0.01600 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#amazon_search (for 127.0.0.1 at 2008-10-13 16:18:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"authenticity_token"=>"d37013b910079f6bdccf6dc29b3304c3165fc5f9", "action"=>"amazon_search", "controller"=>"books", "key_word"=>"金剛番長"}
+Rendering books/amazon_search
+Completed in 2.90600 (0 reqs/sec) | Rendering: 0.00000 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/amazon_search]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:19:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.04700 (21 reqs/sec) | Rendering: 0.03100 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:23:40) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;36;1mUser Load (0.000000)[0m   [0;1mSELECT * FROM users [0m
+Completed in 0.06200 (16 reqs/sec) | Rendering: 0.03100 (50%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
+
+
+Processing BooksController#new (for 127.0.0.1 at 2008-10-13 16:23:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlYTYwYjIyZWU5OWZmMDZlMTJmOWJkOGZjNWQxZGQ4%0AZTkiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--ebe9dd86b0ace0c403e9c7a6f90a59ac0202906c
+  Parameters: {"action"=>"new", "controller"=>"books"}
+Rendering template within layouts/books
+Rendering books/new
+  [4;35;1mUser Load (0.000000)[0m   [0mSELECT * FROM users [0m
+Completed in 0.06300 (15 reqs/sec) | Rendering: 0.03100 (49%) | DB: 0.00000 (0%) | 200 OK [http://localhost/books/new]
