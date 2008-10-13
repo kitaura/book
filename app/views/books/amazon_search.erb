@@ -1,3 +1,27 @@
-<%= @amazon_books%>
+<b><%# @titel%></b>
+<%# @titles%>
+<%# @images%>
+<br>
+<%# image_tag(@image)%>
 
-<%= image_tag(@amazon_books)%>
+<table width="100%" border="1">
+    <tr>
+        <td>
+        	title
+        </td>
+        <td>
+        	image
+        </td>
+    </tr>
+<% @amazon_books.each do |book|%>
+    <tr>
+        <td>
+        	<%= book.title%>
+        </td>
+        <td>
+        	<%= image_tag(book.image)%>
+        </td>
+    </tr>
+<%end%>
+</table>
+

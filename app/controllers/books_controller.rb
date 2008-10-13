@@ -86,13 +86,7 @@ class BooksController < ApplicationController
   
   def amazon_search
     key_word = params[:key_word]
-    res = Amazon::Ecs.item_search(key_word, :response_group => 'Large')
-#    @amazon_books = res.items
-    @amazon_books = res.items.first.get_hash(:smallimage)[:url]
-    #p @amazon_books.each{|a| a.get(:title)}
-#    @reversed_text = params[:text_to_reverse].reverse
-    #@book = Book.new
-    #render :action => "new"
+    @amazon_books = AmazonBook.serch_by_title(key_word)
     
     render :layout => false
   end
